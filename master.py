@@ -1,6 +1,6 @@
 import cv2
 import time
-import serial 
+import serial
 import numpy as np
 import mediapipe as mp
 from pynput.keyboard import Controller
@@ -87,8 +87,8 @@ def calculateIntDidtance(pt1, pt2):
     return int(((pt1[0] - pt2[0]) ** 2 + (pt1[1] - pt2[1]) ** 2) ** 0.5)
 
 
-def keyboard() :
-
+def keyboard():
+    
     # Creating keys
     w, h = 80, 60
     startX, startY = 40, 200
@@ -165,20 +165,17 @@ def keyboard() :
         cv2.putText(frame, str(fps) + " FPS", (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2)
         showKey.drawKey(frame, (255, 255, 255), (0, 0, 0), 0.1, fontScale=0.5)
         exitKey.drawKey(frame, (255, 255, 255), (0, 0, 0), 0.1, fontScale=0.5)
-        cv2.setMouseCallback('video', getMousPos)
+        #cv2.setMouseCallback('video', getMousPos)
 
         show = True
         '''
-        
         if showKey.isOver(clickedX, clickedY):
             show = not show
             showKey.text = "Hide" if show else "Show"
             clickedX, clickedY = 0, 0
-
         '''
 
         if exitKey.isOver(clickedX, clickedY):
-            # break
             exit()
 
         # checking if sign finger is over a key and if click happens
@@ -186,7 +183,7 @@ def keyboard() :
         if show:
             textBox.drawKey(frame, (255, 255, 255), (0, 0, 0), 0.3)
             for k in keys:
-                if k.isOver(mouseX, mouseY) or k.isOver(signTipX, signTipY):
+                if k.isOver(mousX, mousY) or k.isOver(signTipX, signTipY):
                     alpha = 0.1
                     # writing using mouse right click
                     if k.isOver(clickedX, clickedY):
