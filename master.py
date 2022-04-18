@@ -167,10 +167,15 @@ def keyboard() :
         exitKey.drawKey(frame, (255, 255, 255), (0, 0, 0), 0.1, fontScale=0.5)
         cv2.setMouseCallback('video', getMousPos)
 
+        show = True
+        '''
+        
         if showKey.isOver(clickedX, clickedY):
             show = not show
             showKey.text = "Hide" if show else "Show"
             clickedX, clickedY = 0, 0
+
+        '''
 
         if exitKey.isOver(clickedX, clickedY):
             # break
