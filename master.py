@@ -233,4 +233,6 @@ while True :
 
     if 'hand1' in incoming_data:
 
-        keyboard()
+        break
+        
+keyboard()
