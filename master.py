@@ -202,7 +202,7 @@ def keyboard():
 
                         ard.write(bytes('led', 'utf-8')) # writes to serial monitor to flicker led
                         incoming_data = str(ard.readline())
-                        print(incoming_data)MMMODUDRRRRS
+                        print(incoming_data)
 
                         clickTime = time.time()
                         if clickTime - previousClick > 0.4:
