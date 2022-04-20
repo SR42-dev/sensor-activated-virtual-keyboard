@@ -1,9 +1,14 @@
-int IRSensor = 2; // connect ir sensor to arduino pin 2
+int IRSensor = 5; // connect ir sensor to arduino pin 2
 int LED = 13; // conect Led to arduino pin 13
 
 long duration; // variable for the duration of sound wave travel
 int distance; // variable for the distance measurement
-#define echoPin 2 // attach pin D2 Arduino to pin Echo of HC-SR04
+
+byte flicker[] = {200, 0,200, 0,200, 0,200, 0,200, 0,200, 0,200, 0, 200};
+int keyboardActive = 0;
+String b = "led";
+
+#define echoPin 4 // attach pin D2 Arduino to pin Echo of HC-SR04
 #define trigPin 3 //attach pin D3 Arduino to pin Trig of HC-SR04
 
 void setup() 
@@ -35,10 +40,22 @@ void loop()
   Serial.println(distance);
   Serial.println(statusSensor);
   
-  if(((distance > 10) && (distance < 20)) && (statusSensor == 1))
+  if(((distance > 10) && (distance < 20)) && (statusSensor == 1) && (keyboardActive == 0))
   {
     Serial.println("hand1");
-    digitalWrite(LED, HIGH);
+    keyboardActive = 1;
+  }
+
+  String a = Serial.readString(); // read the incoming data as string
+  Serial.println(a);
+
+  if ((keyboardActive == 1) && (a.equals(b)))
+  {
+    for(int i=0; i,7; i++)
+    {
+      analogWrite(LED, flicker[i]);
+      delay(5);
+    }
   }
 
 }
