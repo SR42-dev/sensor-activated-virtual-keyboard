@@ -88,7 +88,7 @@ def calculateIntDidtance(pt1, pt2):
 
 
 def keyboard():
-    
+
     # Creating keys
     w, h = 80, 60
     startX, startY = 40, 200
@@ -199,6 +199,11 @@ def keyboard():
 
                     # writing using fingers
                     if (k.isOver(thumbTipX, thumbTipY)):
+
+                        ard.write(bytes('led', 'utf-8')) # writes to serial monitor to flicker led
+                        incoming_data = str(ard.readline())
+                        print(incoming_data)MMMODUDRRRRS
+
                         clickTime = time.time()
                         if clickTime - previousClick > 0.4:
                             if k.text == '<--':
@@ -228,11 +233,11 @@ def keyboard():
 
 while True :
 
-    incoming_data = str (ard.readline()) 
+    incoming_data = str(ard.readline())
     print(incoming_data)
 
     if 'hand1' in incoming_data:
 
         break
-        
-keyboard()
+
+keyboard()  
