@@ -1,4 +1,4 @@
-# sensor-triggered-virtual-keyboard
+# sensor-activated-virtual-keyboard
 A virtual no-contact keyboard that activates when a hand is detected within certain range of a sensor group connected to an Arduino slave.
 
 Reconfigure the slaveSketch code as per your ultrasonic & IR pin connections.
