@@ -14,4 +14,5 @@ This project was completed as per the requirements of the CS252 project componen
 
 - Sriram Radhakrishna
 - Sushanth Nair
+- Sutejas Keshavaprasad
 - Varun Shankar Hoskere
